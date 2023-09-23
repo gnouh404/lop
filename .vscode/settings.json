@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.rmd": "markdown",
+        "iostream": "cpp"
+    },
+    "files.exclude": {
+        "**/*.exe": true
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}

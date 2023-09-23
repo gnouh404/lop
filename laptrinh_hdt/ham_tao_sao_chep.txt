@@ -1,0 +1,2 @@
+- Hàm tạo sao chép thực hiện việc tạo ra đối tượng mới đồng thời khởi gán giá trị cũ cho đối tượng mới được sinh ra
+- Chỉ xây dựng hàm tạo sao chép khi lớp có chứa thuộc tính là con trỏ hoặc tham chiếu

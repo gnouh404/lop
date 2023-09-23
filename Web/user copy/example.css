@@ -1,0 +1,15 @@
+a:hover {
+    color: #D48F29;
+    text-decoration: 
+    underline overline;
+}
+a:visited{
+    color: aqua;
+}
+html:active{
+    color: chartreuse;
+}
+h1::before
+/* tr::nth-child(2n){
+    
+} */

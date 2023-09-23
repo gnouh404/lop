@@ -1,0 +1,21 @@
+body {
+    width: 960px;
+    margin-left: 100%;
+    margin-right: 100%;
+}
+
+.headings {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 50px;
+    padding: 10px 0 0;
+    text-align: center;
+}
+
+h2 {
+    font-size: 40px;
+    letter-spacing: 15px;
+
+}

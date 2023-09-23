@@ -1,0 +1,65 @@
+ h1{
+    font-size: 28px;
+}
+article {
+    font-style: italic;
+    
+}
+section{
+    margin-left: 20px ;
+}
+footer {
+    background-color: #444;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    color: #fff;
+    text-align: center
+    
+}
+
+section p {
+    font-size: 24px;
+}
+td.bold {
+    font-weight: bold;
+    text-align: center;
+}
+table data{
+    padding-left: 5px;
+}
+table, th, td, tr {
+    border: 1px solid #000000;
+}
+.result {
+    width: 400px;
+    text-align: right;
+    padding-right: 5px;
+}
+table {
+    margin-left: 20px;
+}
+body { 
+    margin: 0px;
+    padding: 0px;
+    background-color: #CCCCCC;
+}
+ul {
+    background-color: #444;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+li {
+    font-size: 24px;
+    line-height: 40px;
+    height: 40px;
+    padding: 20px;
+    display: inline-block;
+}
+a {
+    text-decoration: none;
+    color : #ffffff
+}

@@ -1,0 +1,15 @@
+    lop toa do
+    lop hcn
+    lop ts
+    phan so
+    pt bac 2
+    lop can ho
+
+    bt: viết hàm tạo cho lớp điện thoại(model, hãng sv, giá). SD hàm tạo để nhập cho 3 đt. Tính giá tb
+    - Hàm tạo của lớp bao(lớp mà thuộc tính chứa đối tượng của lớp khác) chẳng hạn lớp hinhtron có thuộc tính tam là đối tượng của lớp diem.​
+
+    Hinhtron():tam(){r=1;}​
+
+    Hinhtron(float a, float b, float bk):tam(a,b){r=bk;}​
+
+    Tenlopbao(ds_doi):doituong(ds_gia_tri){ lệnh gán giá trị cho tt thông thường}​

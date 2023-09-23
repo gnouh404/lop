@@ -1,0 +1,13 @@
+- Cấu trúc của một Node:
+ + Element elem;
+ + Node *next
+- Các phương thức:
+    + Node *getnext() trả lại địa chỉ của nút kế tiếp
+    + getElem()
+    + setNext(Node *) gán địa chỉ cho nút kế
+    + setElem(Element ) 
+- Các thuộc tính của lớp nếu nhận giá trị trong 1 miền hữu hạn nào đó thì phải được khai báo trong mục private để tránh truy cập 
+trực tiếp vào các thuộc tính này và làm thay đổi giá trị của nó với những giá trị nằm ngoài miền xác định
+- Để làm việc với các thuộc tính này thì trong class phải xây dựng các phương thức set(), get() tương ứng với thuộc tính đó
+- Phương thức set() để gán giá trị cho thuộc tính, trong phương thức này ta cần kiểm tra giá trị được gán cho thuộc tính 
+có nằm trong miền xác định của thuộc tính ko, ko thì phải gán lại
