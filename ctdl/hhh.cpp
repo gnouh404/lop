@@ -4,5 +4,6 @@ int main()
 {
     cout << "dmm";
     cout << "abc";
-    cout << "def"
+    cout << "def";
+    cout << "def2";
 }
