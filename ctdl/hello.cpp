@@ -2,5 +2,7 @@
 using namespace std;
 
 int main(){
-    cout << "cc";
+    cout << "dmm";
+    cout << "asdas";
+    cout << "test";
 }
