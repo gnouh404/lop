@@ -46,14 +46,28 @@ nav+h1 {
 
 main {
     margin-top: 20px;
-    display: flex;
-    gap: 30px;
+    /* display: flex; */
+    /* gap: 30px; */
 }
 
-main article {
-    width: calc(33.3% - 20px);
+main article{
+    width: 380px;
+    padding: 10px 40px 0 0;
+    
+    box-sizing: border-box;
     float: left;
-    /* padding: 10px 30px 10px 0; */
+}
+main article + article{
+    width: 380px;
+    padding: 10px 0px 0 40px;
+    
+    box-sizing: border-box;
+}
+main article + article + article{
+    width: 380px;
+    padding: 10px 0 0 40px;
+    box-sizing: border-box;
+    float: right;
 }
 
 div img {
@@ -72,6 +86,7 @@ article h3 {
     text-align: center;
 }
 
+
 article p {
     padding-top: 5px;
 }
@@ -85,12 +100,7 @@ span a {
     background: url(images/bg2.jpg);
 }
 
-footer {
-    margin: 0px;
-    padding: 10px 0 10px 0;
-    text-align: center;
-    clear: both;
-}
+
 
 article p:last-of-type span:first-of-type a::before {
     content: url("images/comment.png");
@@ -114,6 +124,32 @@ li:nth-last-child(1){
 }
 
 article > h3 > a {
-    
+    color: blue;
     text-decoration: none;
+}
+
+span a {
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+    
+}
+
+article p:last-of-type span:first-of-type a::before { 
+    content: url("images/comment.png");
+    position: relative;
+    right: 5px;
+    top: 7px;
+    padding: 10px;
+}
+
+article p{
+    text-align: justify;
+}
+footer {
+    margin: 0px;
+    padding: 30px 0 10px 0;
+    text-align: center;
+    clear: both;
 }
