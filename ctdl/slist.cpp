@@ -84,10 +84,26 @@ public:
         tail = p;
         num--;
     }
+    void insert(T new_data, int position){
+        node<T>* new_node = new node<T>;
+        new_node->setelem(new_data);
+
+        if (position == 1){
+            push_front(new_data);
+        }
+
+        node<T>* prev_node = head;
+        for(int i = 1; i < position - 1; i++){
+            if(prev_node->getnext() == NULL){
+                cout << "Vi tri khong hop le" << endl;
+                return;
+            }
+            prev_node = prev_node->getnext();
+        }
+        new_node->setnext(prev_node->getnext());
+        prev_node->setnext(new_node);
+    }
+
+    
 };
 #endif
-// int main ()
-//{
-//
-//   return 0;
-// }
