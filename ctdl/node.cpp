@@ -4,28 +4,31 @@
 using namespace std;
 template<class T>
 class node{
-	T elem;
+	T data;
 	node *next;
 	public:
 		node(){
 
 		}
-		node(T x, node<T> *N = NULL){
-			elem = x;
+		node(T data, node<T> *N = NULL){
+			this->data = data;
 			next = N;
 		}
 		void setelem(T x){
-			elem = x;
+			data = x;
 		}
-		void setnext(node<T> *N = NULL){
+		void setnext(node<T> *N ){
 			next = N;
 		}
 		T &getelem(){
-			return elem;
+			return data;
 		}
 		node<T> *&getnext(){
 			return next;
 		}
+		~node(){
+			delete next;
+		} 
 		
 };
 #endif

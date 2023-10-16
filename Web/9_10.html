@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <script src="scripts/9_10.js"></script>
+
+</head>
+<body>
+    <form name="frmAccount" action="scripts/9_10.js">
+        fullname:
+        <input type="text" name = "fullname"/><br>
+        age:
+        <input type="text" name="age"/><br>
+        gender:
+        <input type="radio" name="gender"/> Male
+        <input type="radio" name="gender"/> Female <br>
+        phone:
+        <input type="text" name="phone"/><br>
+        
+        <input type="button" value="Submit" onclick="validform(document.forms.frmAccount)">
+    </form>
+</body>
+</html>

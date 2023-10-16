@@ -8,8 +8,25 @@
     // },
     // "C_Cpp.errorSquiggles": "disabled"
     "files.associations": {
+      "*.rmd": "markdown",
       "ostream": "cpp",
       "iostream": "cpp",
-      "iosfwd": "cpp"
-    }
+      "iosfwd": "cpp",
+      "source_location": "cpp",
+      "stacktrace": "cpp",
+      "any": "cpp",
+      "array": "cpp",
+      "charconv": "cpp",
+      "compare": "cpp",
+      "complex": "cpp",
+      "functional": "cpp",
+      "ranges": "cpp",
+      "ratio": "cpp",
+      "scoped_allocator": "cpp",
+      "tuple": "cpp",
+      "type_traits": "cpp",
+      "utility": "cpp",
+      "variant": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
   }
