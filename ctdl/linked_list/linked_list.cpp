@@ -27,20 +27,38 @@ public:
         if (!num)
             end = temp;
         num++;
+        
     }
-    void insert(node<T> *p, T x)
+    void insert(T x, int position)
     {
-        if (!num)
+        
+        node<T> *new_node = new node<T>;
+        new_node->setelem(x);
+        new_node->setnext(NULL);
+        if (!num){
             push_front(x);
+            num++;
+        }
+            
         else
         {
-            node<T> *temp = new node<T>;
-            temp->setnext(p->getnext());
-            p->setnext(temp);
-            temp->setelem(x);
-            if (end == p)
-                end = temp;
+            node<T>* current = head;
+            for(int i = 0; i < position - 1; i++){
+                if(current->getnext() == NULL){
+                    cout << "Vi tri vuot qua kich thuoc cua danh sach lk";
+                    return;
+                }
+                current = current->getnext();
+            }
+            current->setnext(new_node);
+            new_node->setnext(current->getnext());
             num++;
+            // temp->setnext(p->getnext());
+            // p->setnext(temp);
+            // temp->setelem(x);
+            // if (end == p)
+            //     end = temp;
+            // num++;
         }
     }
     void push_back(T x)
@@ -93,6 +111,7 @@ public:
             erase(temp);
         }
     }
+    
     iter<T> dau() { return head; }
     iter<T> cuoi() { return end->getnext(); }
 };

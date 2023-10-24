@@ -1,0 +1,18 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+@media screen and (min-width: 767px){
+.main_content{
+    flex-direction: row;
+}
+}
+
+@media screen and (min-width: 767px) {
+    .category_left{
+        width: 17%; 
+    }
+}
+
+
