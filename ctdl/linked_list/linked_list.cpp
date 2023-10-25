@@ -3,13 +3,13 @@
 #define _linked_list_CPP
 using namespace std;
 template <class T>
-class Don_list
+class LIST
 {
     node<T> *head, *end;
     int num;
 
 public:
-    Don_list()
+    LIST()
     {
         head = end = nullptr;
         num = 0;
@@ -34,10 +34,8 @@ public:
         
         node<T> *new_node = new node<T>;
         new_node->setelem(x);
-        new_node->setnext(NULL);
         if (!num){
             push_front(x);
-            num++;
         }
             
         else
@@ -46,12 +44,11 @@ public:
             for(int i = 0; i < position - 1; i++){
                 if(current->getnext() == NULL){
                     cout << "Vi tri vuot qua kich thuoc cua danh sach lk";
-                    return;
                 }
                 current = current->getnext();
             }
+            new_node->setnext(current);
             current->setnext(new_node);
-            new_node->setnext(current->getnext());
             num++;
             // temp->setnext(p->getnext());
             // p->setnext(temp);
@@ -86,6 +83,12 @@ public:
         temp = head->getNext();
         head = temp;
         num--;
+    }
+    void in(){
+        while(this->head != this->end){
+            cout << this->head->getelem();
+            this->head = this->head->getnext();
+        }
     }
     void erase(node<T> *p)
     {

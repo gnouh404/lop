@@ -4,25 +4,24 @@ using namespace std;
 
 int main()
 {
-    Don_list<float> numbers;
+    LIST<float> numbers;
     float inp;
     while (cin >> inp)
     {
-        if(inp == '#'){
-            break;
+        if(inp != '#'){
+            cin.ignore();
+            numbers.push_back(inp);
         }
         else {
-            numbers.push_back(inp);
+            break;
         }
     }
     int position;
     float value;
-    cout << "\nNhap vi tri can chen:";
+    cout << "Nhap vi tri can chen:";
     cin >> position;
-    cout << "\nNhap gia tri can chen:";
+    cout << "Nhap gia tri can chen:";
     cin >> value;
     numbers.insert(value, position);
-    for(auto it = numbers.dau(); it != numbers.cuoi(); it++){
-        cout << *it << " ";
-    }
+    numbers.in();
 }
