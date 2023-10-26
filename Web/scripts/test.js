@@ -18,6 +18,13 @@ function isInteger(txt)
 	else
 		return false;
 }
+function checkEmail(txt){
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if(!filter.test(txt.value)){
+        return false;
+    }
+    return true;
+}
 
 function validform(f)
 {
@@ -28,13 +35,16 @@ function validform(f)
 		f.email.focus();
 		return;
 	}
+    if(!checkEmail(f.email)){
+        alert("Phai nhap Email hop le theo dang: email@gmail.com");
+        return;
+    }
 	if(checknull(f.rate))
 	{
 		alert(f.rate.name + " must be not null");
 		f.rate.focus();
 		return;
 	}
-    
 	if(isNaN(f.rate.value))
 	{
 		alert(f.rate.name + " must be a number");
@@ -56,5 +66,7 @@ function validform(f)
 		f.rate.focus();
 		return;
 	}
-    alert("Form submitted succesfully");
+    alert("Form submitted succesfully")
 }
+
+
