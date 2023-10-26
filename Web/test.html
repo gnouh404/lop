@@ -3,6 +3,7 @@
 <head>
 	<title>Mobilestore</title>
 	<link rel="stylesheet" type="text/css" href="style/test.css">
+	<script src="scripts/test.js"></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -36,14 +37,14 @@
 						It is common to do entire web layouts using the CSS float property. Float is easy to learn - you just need to remember how the float and clear properties work. Disadvantages: 
 					</div>
 					<div class="frmcomment">
-					<form action="">
+					<form name="frmAccount" action="">
 		              <label for="email">Email</label> <br>
 		              <input type="text" name="email" id="email"> <br>
 		              <label for="com">Comment</label> <br>
 		              <textarea name="com" id="com" cols="30" rows="5"></textarea> <br>
 		              <label for="rate">Rating</label>
 		              <input type="text" name="rate" id="rate" size="5"> <br>
-		              <input type="submit" value="send" name="submit" id="submit">
+		              <input type="submit" value="send" name="submit" id="submit" onclick="validform(document.forms.frmAccount);">
 		            </form>	
 
 				</div>
