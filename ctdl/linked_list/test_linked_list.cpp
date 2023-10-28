@@ -4,24 +4,41 @@ using namespace std;
 
 int main()
 {
-    LIST<float> numbers;
-    float inp;
-    while (cin >> inp)
+    LIST<int> numbers;
+    
+    while (true)
     {
-        if(inp != '#'){
-            cin.ignore();
+        int inp;
+        if(cin >> inp){
             numbers.push_back(inp);
         }
-        else {
+        else{
+            cin.clear();
+            cin.ignore(1, '\n');
             break;
         }
     }
-    int position;
-    float value;
-    cout << "Nhap vi tri can chen:";
-    cin >> position;
-    cout << "Nhap gia tri can chen:";
-    cin >> value;
-    numbers.insert(value, position);
-    numbers.in();
+    // int position;
+    // float value;
+    // cout << "Nhap vi tri can chen:";
+    // cin >> position;
+    // cout << "Nhap gia tri can chen:";
+    // cin >> value;
+    // numbers.insert(value, position);
+    // for(auto it = numbers.dau(); it != numbers.cuoi(); it++){
+    //     cout << *it << " ";
+    // }
+    // cout << "\n" << numbers.size();
+    // float k;
+    // cout << "Nhap so k de kiem tra:";
+    // cin >> k;
+    // numbers.equal(k);
+    // numbers.sapxep();
+    // numbers.deletePrime();
+    // numbers.delete_duplicate();
+    numbers.check_3_even();
+    for(auto it = numbers.dau(); it != numbers.cuoi(); it++){
+        cout << *it << " ";
+    }
+    
 }

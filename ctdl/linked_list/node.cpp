@@ -28,7 +28,8 @@ class node{
 		}
 		~node(){
 			delete next;
-		} 
+		}
+		 
 		
 };
 #endif
