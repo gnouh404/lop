@@ -36,9 +36,10 @@ int main()
     // numbers.sapxep();
     // numbers.deletePrime();
     // numbers.delete_duplicate();
-    numbers.check_3_even();
-    for(auto it = numbers.dau(); it != numbers.cuoi(); it++){
-        cout << *it << " ";
-    }
+    // numbers.sapxep();
+    // numbers.delete_duplicate();
+    numbers.sapxep();
+    numbers.delete_duplicate();
+    numbers.in();
     
 }
