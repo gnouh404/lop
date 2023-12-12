@@ -96,7 +96,15 @@ int main()
         dskh[i].nhap();
     }
     
-    sort(dskh.begin(), dskh.end(), sapxep);
+    for(int i = 0; i < n - 1; i++){
+        for(int j = i + 1; j < n; j++){
+                if(dskh[i].sauuutien() < dskh[j].sauuutien()){
+                    Uutien tmp = dskh[i];
+                        dskh[i] = dskh[j];
+                        dskh[j] = tmp;
+                }
+        }
+    }
     for(auto kh : dskh){
         kh.xuat();
     }

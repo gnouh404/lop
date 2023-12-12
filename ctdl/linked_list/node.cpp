@@ -24,7 +24,10 @@ class node{
 			return data;
 		}
 		node<T> *&getnext(){
-			return next;
+			return next; 
+		}
+		node<T> operator++(){
+			return this->getnext();
 		}
 		~node(){
 			delete next;

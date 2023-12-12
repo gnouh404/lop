@@ -1,8 +1,20 @@
 #include "node_iterator.cpp"
-#include <math.h>
+#include <bits/stdc++.h>
 #ifndef _linked_list_CPP
 #define _linked_list_CPP
 using namespace std;
+template <class T>
+int prime(node<T> *p)
+    {
+        for (int i = 2; i <= sqrt(p->getelem()); i++)
+        {
+            if (p->getelem() % 2 == 0)
+            {
+                return 0;
+            }
+        }
+        return p->getelem() > 1;
+    }
 template <class T>
 class LIST
 {
@@ -25,7 +37,7 @@ public:
         temp->setnext(NULL);
         temp->setelem(x);
         head = temp;
-        if (!num)
+        if (num == 0)
             end = temp;
         num++;
     }
@@ -43,27 +55,65 @@ public:
             num++;
         }
     }
+    void insertInOrder(int x){
+        node<T> *temp = head;
+        while(temp != NULL){
+            if(temp->getelem() == x){
+                return;
+                break;
+            }
+            // temp = temp->getnext();
+            temp = temp->getnext();
+        }
+        node<T> *new_node = new node<T>;
+        new_node->setelem(x);
+        if(head == NULL){
+            head = new_node;
+            end = new_node;
+        }
+        else if(x < head->getelem()){
+            new_node->setnext(head);
+            head = new_node;
+        }
+        else if(x > end->getelem()){
+            end->setnext(new_node);
+            end = new_node;
+        }
+        else{
+            node<T>* curr = head;
+            while(curr->getnext() != NULL && curr->getnext()->getelem() < x){
+                curr = curr->getnext();
+            }
+            new_node->setnext(curr->getnext());
+            curr->setnext(new_node);
+            num++;
+        }
+    }
     void insert(T x, int position)
     {
         node<T> *new_node = new node<T>;
         new_node->setelem(x);
         new_node->setnext(NULL);
-        if (position == 1 || num == 0)
+        if (position == 1)
         {
             push_front(x);
         }
-        node<T> *current = head;
-        node<T> *previous = NULL;
-        int cnt = 0;
-        while (current != NULL && cnt < position - 1)
-        {
-            previous = current;
-            current = current->getnext();
-            cnt++;
+        else if(position == num + 1) push_back(x);
+        else{
+            node<T> *current = head;
+            node<T> *previous = NULL;
+            int cnt = 0;
+            while (current != NULL && cnt < position - 1)
+            {
+                previous = current;
+                current = current->getnext();
+                cnt++;
+            }
+            previous->setnext(new_node);
+            new_node->setnext(current);
+            num++;
         }
-        previous->setnext(new_node);
-        new_node->setnext(current);
-        num++;
+        
     }
     // void equal(T k)
     // {
@@ -100,43 +150,11 @@ public:
     //             }
     //         if (check == false){
     //             cout << "Trong day ko co 3 so duong chan canh nhau\n";
-    //         }  
+    //         }
     //     }
     //     else cout << "Day ko du 3 so de xet\n";
-        
+
     // }
-    void erase_head()
-    {
-        if (!num)
-            return;
-        if (num == 1)
-        {
-            head = end = nullptr;
-            return;
-        }
-        node<T> *temp = new node<T>;
-        temp = head->getnext();
-        head = temp;
-        num--;
-    }
-    void pop_front()
-    {
-        erase_head();
-    }
-    void pop_back()
-    {
-        if (num < 2)
-            erase_head();
-        else
-        {
-            node<T> *temp = new node<T>;
-            while (temp->getNext() != end)
-            {
-                temp++;
-            }
-            erase(temp);
-        }
-    }
     // int prime(node<T> *p)
     // {
     //     for (int i = 2; i <= sqrt(p->getelem()); i++)
@@ -148,113 +166,131 @@ public:
     //     }
     //     return p->getelem() > 1;
     // }
-    // void deletePrime()
-    // {
-    //     node<T> *p = head;
-    //     node<T> *previousX = head;
-    //     while (p != NULL)
-    //     {
-    //         if (prime(p))
-    //         {
-    //             node<T> *r = p;
-    //             if (p == head)
-    //             {
-    //                 head = head->getnext();
-    //                 p = head;
-    //                 previousX = head;
-    //                 num--;
-    //             }
-    //             else
-    //             {
-    //                 previousX->setnext(p->getnext());
-    //                 p = p->getnext();
-    //                 num--;
-    //             }
-    //             free(r);
-    //             continue;
-    //         }
-    //         previousX = p;
-    //         p = p->getnext();
-    //     }
-    // }
-    // void delete_duplicate()
-    // {
-    //     node<T>* current = head;
-    //     while(current->getnext() != NULL)
-    //     {
-    //         node<T>* temp = current;
-    //         node<T>* index = current->getnext();
-    //         while(index != NULL)
-    //         {
-    //             if (current->getelem() == index->getelem())
-    //             {
-    //                 temp->setnext(index->getnext());
-    //                 free(index);
-    //             }
-    //             else{
-    //                 temp = index;
-    //             }
-    //             index = index->getnext();
-    //         }
-    //         current = current->getnext();
-    //     }
-    // }
-    
-    LIST<T> merge(LIST<T> a, LIST<T> b){
+    void deletePrime()
+    {
+        node<T> *p = head;
+        node<T> *previousX = head;
+        while (p != NULL)
+        {
+            if (prime(p))
+            {
+                node<T> *r = p;
+                if (p == head)
+                {
+                    head = head->getnext();
+                    p = head;
+                    previousX = head;
+                    num--;
+                }
+                else
+                {
+                    previousX->setnext(p->getnext());
+                    p = p->getnext();
+                    num--;
+                }
+                free(r);
+            }
+            else{
+                previousX = p;
+                p = p->getnext();
+            }
+            
+        }
+    }
+    void delete_duplicate()
+    {
+        node<T> *current = head;
+        while (current != NULL)
+        {
+            // bien temp de luu tru dia chi cua node truoc node co gia tri = node current
+            node<T> *temp = current;
+            node<T> *index = current->getnext();
+            while (index != NULL)
+            {
+                if (current->getelem() == index->getelem())
+                {
+                    temp->setnext(index->getnext());
+                    num--;
+                    free(index);
+                }
+                else
+                {
+                    temp = index;
+                }
+                index = index->getnext();
+            }
+            current = current->getnext();
+        }
+    }
+
+    friend LIST<T> merge(LIST<T> a, LIST<T> b)
+    {
         LIST<T> mergedlist;
-        node<T>* curr1 = a.begin();
-        node<T>* curr2 = b.begin();
-        while( curr1 !=nullptr && curr2 != nullptr){
-            if(curr1->getelem() <= curr2->getelem()){
+        node<T> *curr1 = a.begin();
+        node<T> *curr2 = b.begin();
+        while (curr1 != nullptr && curr2 != nullptr)
+        {
+            if (curr1->getelem() <= curr2->getelem())
+            {
                 mergedlist.push_back(curr1->getelem());
                 curr1 = curr1->getnext();
             }
-            else{
+            else
+            {
                 mergedlist.push_back(curr2->getelem());
                 curr2 = curr2->getnext();
             }
         }
-        while( curr1 != nullptr){
+        while (curr1 != nullptr)
+        {
             mergedlist.push_back(curr1->getelem());
             curr1 = curr1->getnext();
         }
-        while( curr2 != nullptr){
+        while (curr2 != nullptr)
+        {
             mergedlist.push_back(curr2->getelem());
             curr2 = curr2->getnext();
         }
         return mergedlist;
     }
-    LIST<T> even_list(LIST<T> a){
+    friend LIST<T> even_list(LIST<T> a)
+    {
         LIST<T> evenlist;
-        node<T>* curr = a.begin();
-        while(curr != nullptr){
-            if(curr->getelem() % 2 == 0){
+        node<T> *curr = a.begin();
+        while (curr != nullptr)
+        {
+            if (curr->getelem() % 2 == 0)
+            {
                 evenlist.push_back(curr->getelem());
             }
             curr = curr->getnext();
         }
         return evenlist;
     }
-    LIST<T> odd_list(LIST<T> a){
+    friend LIST<T> odd_list(LIST<T> a)
+    {
         LIST<T> oddlist;
-        node<T>* curr = a.begin();
-        while(curr != nullptr){
-            if(curr->getelem() % 2 != 0){
+        node<T> *curr = a.begin();
+        while (curr != nullptr)
+        {
+            if (curr->getelem() % 2 != 0)
+            {
                 oddlist.push_back(curr->getelem());
             }
             curr = curr->getnext();
         }
         return oddlist;
     }
-    void in(){
-        node<T>* p = head;
-        while(p != NULL){
+    void in()
+    {
+        node<T> *p = head;
+        while (p != NULL)
+        {
             cout << p->getelem() << " ";
             p = p->getnext();
         }
     }
-    
-    
+
     node<T> *begin() { return head; }
     node<T> *tail() { return end->getnext(); }
     iter<T> dau() { return head; }
