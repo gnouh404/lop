@@ -25,7 +25,7 @@ class nhan_vien{
     string get_manv(){return manv;}
     float get_luong(){return luong;}
 };
-class quanlynv{
+class quanlynv:public nhan_vien{
     list<nhan_vien> a;
     int n;
     public:
@@ -42,14 +42,14 @@ class quanlynv{
         }
     }
     void remove_staff(string& x){
-        int k = 0;
-        for(auto &nv:a){
-            if(nv.get_manv().compare(x) != 0){
-                k++;
+        for(list<nhan_vien>::iterator it = a.begin(); it != a.end(); it++){
+            if(it->get_manv().compare(x) == 0){
+                a.erase(it);
+                cout << "\nDa xoa nhan vien co ma " << x << "\n";
+                return;
             }
         }
-        auto it = std::next(a.begin(), k);
-        a.erase(it);
+        
     }
     void in_luong(){
         for(auto &x:a){
@@ -69,9 +69,9 @@ int main(){
     quanlynv x;
     string ma;
     x.create_list();
+    x.in_ds();
     cout << "Nhap ma nv can xoa:";
     getline(cin, ma);
     x.remove_staff(ma);
-    cout << "\n\nDanh sach nhan vien co luong hon 2tr la:\n";
-    x.in_luong();
+    x.in_ds();
 }
