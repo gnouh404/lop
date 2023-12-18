@@ -3,7 +3,7 @@ using namespace std;
 void quicksort(int a[], int left, int right){
     if(left >= right) return; // co <= 1 phan tu
     // 2 phan tu
-    else if(left == right + 1) {
+    else if(left + 1 == right) {
         if(a[left] > a[right])
             swap(a[left], a[right]);
     }

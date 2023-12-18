@@ -26,13 +26,14 @@ void heapSort(int a[], int n){
     for(int i = n - 1; i >= 0; i--){
         swap(a[0], a[i]);
         make_heap_node(a,i,0);
-        
+        cout << "i =" << i << "  "; out(a,n);
     }
 }
 void out(int a[], int n){
     for(int i = 0; i < n; i++){
         cout << a[i] << " ";
     }
+    cout << "\n\n";
 }
 int main(){
     int n;
@@ -42,7 +43,7 @@ int main(){
     for(int i = 0; i < n; i++){
         cin >>a[i];
     }
-    make_heap(a,n);
+    heapSort(a,n);
     out(a,n);
 
 }
